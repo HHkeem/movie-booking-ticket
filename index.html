@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Theater Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Cineplex</h1>
+            <input type="text" id="search-bar" placeholder="Search for movies..." onkeyup="searchMovies()" />
+        </header>
+
+        <!-- Login/Register Menu -->
+        <div id="auth-section" class="auth-section">
+            <h2>Login / Register</h2>
+            <div id="login-form">
+                <input type="text" id="login-username" placeholder="Username" />
+                <input type="password" id="login-password" placeholder="Password" />
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <a href="#" onclick="toggleForm()">Register here</a></p>
+            </div>
+            <div id="register-form" style="display: none;">
+                <input type="text" id="register-username" placeholder="Username" />
+                <input type="password" id="register-password" placeholder="Password" />
+                <button onclick="register()">Register</button>
+                <p>Already have an account? <a href="#" onclick="toggleForm()">Login here</a></p>
+            </div>
+        </div>
+
+        <!-- Movie Booking Section -->
+        <div id="movie-section" class="movie-section" style="display: none;">
+            <h3>Available Movies</h3>
+            <div id="movies-list" class="movies-grid"></div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+            <button class="my-tickets-btn" onclick="viewTickets()">My Tickets</button>
+        </div>
+
+        <!-- Movie Details Section -->
+        <div id="movie-details-section" class="movie-section" style="display: none;">
+            <h3 id="movie-title"></h3>
+            <img id="movie-poster" alt="Movie Poster" style="width: 50%; border-radius: 5px;" />
+            <div id="movie-description"></div>
+            <div id="showtime-selection"></div>
+            <input type="number" id="ticket-count" placeholder="Number of Tickets" min="1" />
+            <div id="seat-selection" class="seat-selection" style="display: none;"></div>
+            <button id="book-ticket-btn" onclick="bookTicket()" style="display: none;">Book Ticket</button>
+            <button class="back-btn" onclick="goBackToMovies()">Back to Movies</button>
+        </div>
+
+        <!-- My Tickets Section -->
+        <div id="tickets-section" class="movie-section" style="display: none;">
+            <h3>Your Tickets</h3>
+            <div id="my-tickets-list"></div>
+            <button class="back-btn" onclick="goBack()">Back to Movies</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
